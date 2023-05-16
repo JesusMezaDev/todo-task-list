@@ -1,6 +1,6 @@
 <template>
-    <div class="float-start ms-2">
-        <button type="button" class="btn btn-secondary" @click.prevent="filterCompletedTasks()">Completados</button>
+    <div class="float-start m-2">
+        <button type="button" class="btn btn-secondary bi-list-check" @click.prevent="filterCompletedTasks()"> Completados</button>
     </div>
 </template>
 

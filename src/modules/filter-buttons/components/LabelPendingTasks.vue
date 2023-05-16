@@ -1,5 +1,5 @@
 <template>
-    <div class="float-start ms-2">
+    <div class="float-start m-2">
         {{ pendingTasks }} tarea(s) pendiente(s)
     </div>
 </template>

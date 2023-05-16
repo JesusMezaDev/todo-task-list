@@ -1,6 +1,6 @@
 <template>
-    <div class="float-end me-2">
-        <button type="button" class="btn btn-danger" @click.prevent="deleteAllCompleted()">Borrar completados</button>
+    <div class="float-end m-2">
+        <button type="button" class="btn btn-danger bi-eraser" @click.prevent="deleteAllCompleted()"> Borrar completados</button>
     </div>
 </template>
 

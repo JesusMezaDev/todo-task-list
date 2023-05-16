@@ -1,12 +1,22 @@
 <template>
-    <div class="row m-3 d-flex align-items-center">
-        <div class="col">
+    <div class="row m-3 d-flex align-items-center justify-content-center">
+        <div class="col-auto">
             <LabelPendingTasks />
-            <ButtonCompleteAll />
-            <ButtonDeleteCompleted />
+        </div>
+        <div class="col-auto">
             <ButtonFilterAllTasks />
+        </div>
+        <div class="col-auto">
             <ButtonFilterActive />
+        </div>
+        <div class="col-auto">
             <ButtonFilterCompleted />
+        </div>
+        <div class="col-auto">
+            <ButtonCompleteAll />
+        </div>
+        <div class="col-auto">
+            <ButtonDeleteCompleted />
         </div>
     </div>
 </template>

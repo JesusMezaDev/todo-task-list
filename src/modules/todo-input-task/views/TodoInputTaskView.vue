@@ -7,9 +7,12 @@
             </h3>
         </div>
     </div>
-    <div class="row m-3">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="¿Qué tarea tienes pendiente por hacer?" v-model="task" @keyup.enter="saveTask">
+    <div class="row m-3 d-flex justify-content-center align-items-center">
+        <div class="col-auto">
+            <input type="text" class="form-control w-320 m-1" placeholder="¿Qué tarea tienes pendiente por hacer?" v-model="task" @keyup.enter="saveTask">
+        </div>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary m-1 bi-plus-circle" @click.prevent="saveTask"> Agregar</button>
         </div>
     </div>
 </template>
@@ -21,5 +24,7 @@
 </script>
 
 <style scoped>
-
+    .w-320 {
+        width: 320px;
+    }
 </style>

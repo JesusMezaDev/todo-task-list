@@ -7,6 +7,11 @@
                     <label class="form-check-label stretched-link" :for="`check-${ index }`" :class="item.done ? 'text-decoration-line-through' : ''">{{ item.text }}</label>
                 </li>
             </ul>
+            <ul class="list-group" v-if="todos.length === 0">
+                <li class="list-group-item list-group-item-action d-flex justify-content-center">
+                    <label class="form-check-label">¡Felicidades! Has terminado todas las tareas</label>
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -22,7 +27,7 @@
     loadFromLocalStorage();
 
     if (todos.value.length === 0) {
-        const list = [0,1,3,4,5];
+        const list = [0,1,3];
 
         for (let item of list) {
             createSample(`Tarea Número: ${ item }`)
@@ -31,5 +36,17 @@
 </script>
 
 <style scoped>
+    .list-group {
+        border-radius: 0px;
+    }
+    
+    .list-group:first-child {
+        border-top-left-radius: var(--bs-list-group-border-radius);
+        border-top-right-radius: var(--bs-list-group-border-radius);
+    }
 
+    .list-group:last-child {
+        border-bottom-left-radius: var(--bs-list-group-border-radius);
+        border-bottom-right-radius: var(--bs-list-group-border-radius);
+    }
 </style>

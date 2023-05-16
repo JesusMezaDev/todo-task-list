@@ -1,6 +1,6 @@
 <template>
-    <div class="float-end me-2">
-        <button type="button" class="btn btn-success" @click.prevent="finishAll()">Completar todos</button>
+    <div class="float-end m-2">
+        <button type="button" class="btn btn-success bi-check2-square" @click.prevent="finishAll()"> Completar todos</button>
     </div>
 </template>
 
