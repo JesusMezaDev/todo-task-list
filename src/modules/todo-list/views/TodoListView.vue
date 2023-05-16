@@ -17,12 +17,16 @@
     
     const todoStore = todoListStore();
     const { todos } = storeToRefs(todoStore);
-    const { createSample, toogle } = todoStore;
+    const { createSample, toogle, loadFromLocalStorage } = todoStore;
 
-    const list = [0,1,3,4,5];
+    loadFromLocalStorage();
 
-    for (let item of list) {
-        createSample(`Tarea Número: ${ item }`)
+    if (todos.value.length === 0) {
+        const list = [0,1,3,4,5];
+
+        for (let item of list) {
+            createSample(`Tarea Número: ${ item }`)
+        }
     }
 </script>
 

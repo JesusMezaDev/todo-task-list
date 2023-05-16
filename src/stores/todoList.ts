@@ -5,8 +5,8 @@ import { v4 as uuid } from 'uuid';
 
 export const todoListStore = defineStore('todoListStore', () => {
   const todos = ref<{ id: string, text: string, done: boolean, show: boolean }[]>([]);
-
   const fillterAllTasks = (): void => { todos.value.map(task => task.show = true) };
+  const saveInLocalStorage = (): void => { localStorage.setItem('todos', JSON.stringify(todos.value)); }
 
   return {
     todos,
@@ -15,16 +15,19 @@ export const todoListStore = defineStore('todoListStore', () => {
       const id = uuid();
       todos.value.push({ id, text, done: false,  show: true });
       fillterAllTasks();
+      saveInLocalStorage();
     },
     createSample: (text: string) => { 
       const id = uuid();
       todos.value.push({ id, text, done: true,   show: true  });
+      saveInLocalStorage();
     },
     finishAll: () => {
       todos.value = todos.value.map(todo => {
         todo.done = true;
         return todo;
       });
+      saveInLocalStorage();
     },
     toogle: (id: string) => {
       todos.value = todos.value.map(todo => {
@@ -33,9 +36,11 @@ export const todoListStore = defineStore('todoListStore', () => {
         }
         return todo;
       });
+      saveInLocalStorage();
     },
     deleteAllCompleted:  () => {
       todos.value = todos.value.filter(todo => !todo.done);
+      saveInLocalStorage();
     },
     pendingTasks: computed(() => todos.value.filter(task => !task.done).length),
     filterActiveTasks: (): void => {
@@ -53,5 +58,8 @@ export const todoListStore = defineStore('todoListStore', () => {
       });
     },
     fillterAllTasks,
+    loadFromLocalStorage: (): void => {
+      todos.value = JSON.parse(localStorage.getItem('todos') || '[]');
+    }
   };  
 });
